@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CA2
 {
-    public abstract class Employee
+    abstract class Employee
     {
         public string FirstName { get; set; }
         public string Surname { get; set; }

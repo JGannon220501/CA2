@@ -24,5 +24,19 @@ namespace CA2
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            tbxFirstName.Clear();
+            tbxSurname.Clear();
+            tbxSalary.Clear();
+            tbxHoursWorked.Clear();
+            tbxHourlyRate.Clear();
+        }
     }
 }
