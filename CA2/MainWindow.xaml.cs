@@ -24,12 +24,28 @@ namespace CA2
         {
             InitializeComponent();
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             
         }
-
+        private void rbtnFT_Checked(object sender, RoutedEventArgs e)
+        {
+            string WorkType;
+            if(rbtnFT.IsChecked == true)
+            {
+                WorkType = "Full Time";
+            }
+            else if(rbtnPT.IsChecked == true)
+            {
+                WorkType = "Part Time";
+            }
+            foreach (Employee employee in employees)
+            {
+                if (employee.WorkType == workType)
+                    filteredEmployees.Add(employee);
+            }
+            lbxNames.ItemsSource = filteredEmployees;
+        }
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             tbxFirstName.Clear();
