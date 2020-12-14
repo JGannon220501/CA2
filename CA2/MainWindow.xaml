@@ -19,7 +19,7 @@
         <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Height="21" Margin="297.34,155,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
         <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Height="21" Margin="297.34,217,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
         <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Height="21" Margin="297.34,285,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
-        <RadioButton x:Name="rbtnFT" Content="FT" HorizontalAlignment="Left" Height="21" Margin="27.34,183,0,0" VerticalAlignment="Top" Width="49" Grid.Column="1" Checked="rbtnFT_Checked"/>
+        <RadioButton x:Name="rbtnFT" Content="FT" HorizontalAlignment="Left" Height="21" Margin="27.34,183,0,0" VerticalAlignment="Top" Width="49" Grid.Column="1"/>
         <RadioButton x:Name="rbtnPT" Content="PT" HorizontalAlignment="Left" Height="21" Margin="97.34,183,0,0" VerticalAlignment="Top" Width="49" Grid.Column="1"/>
         <TextBox x:Name="tbxFirstName" HorizontalAlignment="Left" Height="22" Margin="25.34,99,0,0" TextWrapping="Wrap" Text="Enter First Name Here" VerticalAlignment="Top" Width="161" Grid.Column="1" GotFocus="tbxFirstName_GotFocus"/>
         <TextBox x:Name="tbxSurname" HorizontalAlignment="Left" Height="22" Margin="25.34,141,0,0" TextWrapping="Wrap" Text="Enter Surname Here" VerticalAlignment="Top" Width="161" Grid.Column="1" GotFocus="tbxSurname_GotFocus"/>

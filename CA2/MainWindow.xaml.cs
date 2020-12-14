@@ -28,26 +28,7 @@ namespace CA2
         {
             
         }
-        private void rbtnFT_Checked(object sender, RoutedEventArgs e)
-        {
-            string WorkType = "";
-            if(rbtnFT.IsChecked == true)
-            {
-                WorkType = "Full Time";
-            }
-            else if(rbtnPT.IsChecked == true)
-            {
-                WorkType = "Part Time";
-            }
-        }
-        private void btnClear_Click(object sender, RoutedEventArgs e)
-        {
-            tbxFirstName.Clear();
-            tbxSurname.Clear();
-            tbxSalary.Clear();
-            tbxHoursWorked.Clear();
-            tbxHourlyRate.Clear();
-        }
+
         private void tbxFirstName_GotFocus(object sender, RoutedEventArgs e)
         {
             tbxFirstName.Clear();
@@ -68,5 +49,17 @@ namespace CA2
         {
             tbxHourlyRate.Clear();
         }
+
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            tbxFirstName.Clear();
+            tbxSurname.Clear();
+            tbxSalary.Clear();
+            tbxHoursWorked.Clear();
+            tbxHourlyRate.Clear();
+        }
+
+
     }
 }
