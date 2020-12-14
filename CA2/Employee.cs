@@ -8,9 +8,25 @@ namespace CA2
 {
     public abstract class Employee
     {
-        //Properties
+        #region Properties
         public string FirstName { get; set; }
         public string Surname { get; set; }
+        public string WorkType { get; set; }
+        #endregion Properties
+
+        #region Constructors
+        public Employee(string firstname, string surname)
+        {
+            FirstName = firstname;
+            Surname = surname;
+        }
+        #endregion Constructors
+
+        public override string ToString()
+        {
+            return string.Format($"{Surname}, {FirstName}");
+        }
+
         public abstract decimal CalculateMonthlyPay();
     }
 
@@ -22,6 +38,9 @@ namespace CA2
             decimal MonthlyPay = Salary / 12;
             return MonthlyPay;
         }
+        public FullTimeEmployee(string firstname, string surname):base(firstname, surname)
+        {
+        }
     }
 
     public class PartTimeEmployee:Employee
@@ -30,9 +49,11 @@ namespace CA2
         public double HoursWorked { get; set; }
         public override decimal CalculateMonthlyPay()
         {
-            decimal decHoursWorked = Convert.ToDecimal(HoursWorked);
-            decimal MonthlyPay = decHoursWorked * HourlyRate;
+            decimal MonthlyPay = (decimal)HoursWorked * HourlyRate;
             return MonthlyPay;
+        }
+        public PartTimeEmployee(string firstname, string surname):base(firstname, surname)
+        {
         }
     }
 }
