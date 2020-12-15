@@ -148,5 +148,10 @@ namespace CA2
                 lbxNames.ItemsSource = filteredEmployees;
             }
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            lbxNames.Items.Remove(employees);
+        }
     }
 }
