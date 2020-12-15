@@ -30,15 +30,14 @@ namespace CA2
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Employee e1 = new PartTimeEmployee("Jane", "Jones");
-            Employee e2 = new FullTimeEmployee("Joe", "Murphy");
-            Employee e3 = new PartTimeEmployee("John", "Smith");
-            Employee e4 = new FullTimeEmployee("Jess", "Walsh");
+            Employee e1 = new PartTimeEmployee("Jane", "Jones", "Part Time", 10, 25);
+            Employee e2 = new FullTimeEmployee("Joe", "Murphy", "Full Time", 52000);
+            Employee e3 = new PartTimeEmployee("John", "Smith", "Part Time", 12, 18);
+            Employee e4 = new FullTimeEmployee("Jess", "Walsh", "Full Time", 78000);
             employees.Add(e1);
             employees.Add(e2);
             employees.Add(e3);
             employees.Add(e4);
-
             lbxNames.ItemsSource = employees;
         }
 
@@ -78,27 +77,75 @@ namespace CA2
         {
             string firstname = tbxFirstName.Text;
             string surname = tbxSurname.Text;
-        }
-
-        private void btnUpdate_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void rbtnFT_Checked(object sender, RoutedEventArgs e)
-        {
-            if(rbtnFT.IsChecked == true)
+            decimal salary = Convert.ToDecimal(tbxSalary.Text);
+            decimal hourlyrate = Convert.ToDecimal(tbxHourlyRate.Text);
+            double hoursworked = Convert.ToDouble(tbxHoursWorked.Text);
+            if (rbtnFT.IsChecked == true)
             {
-                string worktype = "FullTime";
+                string worktype = "Full Time";
+                Employee employee = new FullTimeEmployee(firstname, surname, worktype, salary);
+                employees.Add(employee);
             }
-            else if(rbtnPT.IsChecked == true)
+            else if (rbtnPT.IsChecked == true)
             {
-                string worktype = "PartTime";
+                string worktype = "Part Time";
+                Employee employee = new PartTimeEmployee(firstname, surname, worktype, hourlyrate, hoursworked);
+                employees.Add(employee);
+            }
+        }
+
+        private void lbxNames_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FullTimeEmployee selectedEmployeeFT = lbxNames.SelectedItem as FullTimeEmployee;
+            if(selectedEmployeeFT != null)
+            {
+                tbxFirstName.Text = selectedEmployeeFT.FirstName;
+                tbxSurname.Text = selectedEmployeeFT.Surname;
+                tbxSalary.Text = (Convert.ToString(selectedEmployeeFT.Salary));
+                rbtnFT.IsChecked = true;
+                tbxHourlyRate.Clear();
+                tbxHoursWorked.Clear();
+            }
+            PartTimeEmployee selectedEmployeePT = lbxNames.SelectedItem as PartTimeEmployee;
+            if(selectedEmployeePT != null)
+            {
+                tbxFirstName.Text = selectedEmployeePT.FirstName;
+                tbxSurname.Text = selectedEmployeePT.Surname;
+                rbtnPT.IsChecked = true;
+                tbxHourlyRate.Text = Convert.ToString(selectedEmployeePT.HourlyRate);
+                tbxHoursWorked.Text = Convert.ToString(selectedEmployeePT.HoursWorked);
+                tbxSalary.Clear();
+            }
+        }
+
+        private void cbxFT_Checked(object sender, RoutedEventArgs e)
+        {
+            string worktype = "";
+            filteredEmployees.Clear();
+            lbxNames.ItemsSource = null;
+
+            if (cbxFT.IsChecked != true && cbxPT.IsChecked != true)
+            {
+                lbxNames.ItemsSource = employees;
+            }
+            else
+            {
+                if (cbxFT.IsChecked == true)
+                {
+                    worktype = "Full Time";
+                }
+                else if (cbxPT.IsChecked == true)
+                {
+                    worktype = "Part Time";
+                }
+                foreach (Employee employee in employees)
+                {
+                    if(employee.WorkType == worktype)
+                    {
+                        filteredEmployees.Add(employee);
+                    }    
+                }
+                lbxNames.ItemsSource = filteredEmployees;
             }
         }
     }
