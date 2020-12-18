@@ -8,12 +8,14 @@ namespace CA2
 {
     public abstract class Employee
     {
+        //Properties
         #region Properties
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public string WorkType { get; set; }
         #endregion Properties
 
+        //Constructors
         #region Constructors
         public Employee(string firstname, string surname, string worktype)
         {
@@ -23,6 +25,7 @@ namespace CA2
         }
         #endregion Constructors
 
+        //Methods
         public override string ToString()
         {
             return string.Format($"{Surname.ToUpper()}, {FirstName} - {WorkType}");
@@ -33,11 +36,12 @@ namespace CA2
 
     public class FullTimeEmployee:Employee
     {
+        //Properties
         #region Properties
         public decimal Salary { get; set; }
         #endregion Properties
 
-        
+        //Constructors
         #region Constructors
         public FullTimeEmployee(string firstname, string surname, string worktype, decimal salary):base(firstname, surname, worktype)
         {
@@ -45,21 +49,23 @@ namespace CA2
         }
         #endregion Constructors
 
+        //Methods
         public override decimal CalculateMonthlyPay()
         {
             decimal MonthlyPay = Salary / 12;
             return MonthlyPay;
         }
-
     }
 
     public class PartTimeEmployee:Employee
     {
+        //Properties
         #region Properties
         public decimal HourlyRate { get; set; }
         public double HoursWorked { get; set; }
         #endregion Properties
 
+        //Constructors
         #region Constructors
         public PartTimeEmployee(string firstname, string surname, string worktype, decimal hourlyrate, double hoursworked):base(firstname, surname, worktype)
         {
@@ -68,11 +74,11 @@ namespace CA2
         }
         #endregion Constructors
 
+        //Methods
         public override decimal CalculateMonthlyPay()
         {
             decimal MonthlyPay = (decimal)HoursWorked * HourlyRate;
             return MonthlyPay;
         }
-
     }
 }

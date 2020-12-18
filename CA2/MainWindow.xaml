@@ -11,13 +11,13 @@
             <ColumnDefinition Width="335*"/>
             <ColumnDefinition Width="457*"/>
         </Grid.ColumnDefinitions>
-        <CheckBox x:Name="cbxFT" Content="Full Time" HorizontalAlignment="Left" Height="21" Margin="52,29,0,0" VerticalAlignment="Top" Width="78" Checked="cbxFT_Checked"/>
-        <CheckBox x:Name="cbxPT" Content="Part Time" HorizontalAlignment="Left" Height="21" Margin="135,29,0,0" VerticalAlignment="Top" Width="78"/>
+        <CheckBox x:Name="cbxFT" Content="Full Time" HorizontalAlignment="Left" Height="21" Margin="52,29,0,0" VerticalAlignment="Top" Width="78" Checked="cbxFT_Checked" Unchecked="cbxFT_Unchecked"/>
+        <CheckBox x:Name="cbxPT" Content="Part Time" HorizontalAlignment="Left" Height="21" Margin="135,29,0,0" VerticalAlignment="Top" Width="78" Unchecked="cbxPT_Unchecked" Checked="cbxPT_Checked"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="20" Margin="52,55,0,0" TextWrapping="Wrap" Text="EMPLOYEES" VerticalAlignment="Top" Width="161"/>
-        <ListBox x:Name="lbxNames" HorizontalAlignment="Left" Height="300" Margin="52,92,0,0" VerticalAlignment="Top" Width="161" SelectionChanged="lbxNames_SelectionChanged"/>
+        <ListBox x:Name="lbxNames" HorizontalAlignment="Left" Height="300" Margin="52,92,0,0" VerticalAlignment="Top" Width="161" SelectionChanged="lbxNames_SelectionChanged" Loaded="lbxNames_Loaded"/>
         <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Height="21" Margin="297.34,92,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" Click="btnClear_Click"/>
         <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Height="21" Margin="297.34,155,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" Click="btnAdd_Click"/>
-        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Height="21" Margin="297.34,217,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Height="21" Margin="297.34,217,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" Click="btnUpdate_Click"/>
         <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Height="21" Margin="297.34,285,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" Click="btnDelete_Click"/>
         <RadioButton x:Name="rbtnFT" Content="FT" HorizontalAlignment="Left" Height="21" Margin="27.34,183,0,0" VerticalAlignment="Top" Width="49" Grid.Column="1"/>
         <RadioButton x:Name="rbtnPT" Content="PT" HorizontalAlignment="Left" Height="21" Margin="97.34,183,0,0" VerticalAlignment="Top" Width="49" Grid.Column="1"/>
